@@ -1,0 +1,13 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('quiz2bg.jpg');
+    background-size: cover; /* or 'contain' */
+    background-repeat: no-repeat;
+    height: 100vh; /* or any other height you want */
+}
+*{
+    font-family: "Mystery Quest", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}

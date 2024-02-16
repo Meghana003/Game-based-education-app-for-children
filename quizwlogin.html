@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brainy Buddies Quiz</title>
+<link rel="stylesheet" type="text/css" href="quizwlogin.css">
+<style>
+    body {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .container {
+        font-size:30px;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    .question {
+        margin-bottom: 20px;
+        font-size: 40px;
+    }
+
+    .answers {
+        display: grid;
+        grid-template-columns:1fr;
+        gap: 10px;
+    }
+
+    .answer-card {
+        padding: 20px;
+        background-color: #f8f9fa;
+        border: 1px solid #ced4da;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        text-align: center;
+        font-size: 25px; /* Adjust the font size as needed */
+    }
+
+    .answer-card:hover {
+        background-color: #e9ecef;
+    }
+
+    .result {
+        font-size:20px;
+        text-align: center;
+        font-weight: bold;
+        margin-top: 20px;
+    }
+
+    #loginPage {
+        display: block;
+    }
+
+    #quizPage {
+        display: none;
+    }
+
+    #startButton {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 40px;
+        cursor: pointer;
+        display: block; /* Ensuring it's a block-level element */
+        margin: 0 auto; /* Setting left and right margin to auto */
+        text-align: center; /* Centering text horizontally */
+    }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mystery+Quest&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div id="loginPage">
+        <h1>Welcome to Brainy Buddies Quiz!</h1>
+        <p>Please click the button below to start the quiz.</p>
+        <button id="startButton" onclick="startQuiz()">Start Quiz</button>
+    </div>
+    <div id="quizPage">
+        <h1>Brainy Buddies</h1>
+        <div class="question" id="question"></div>
+        <div class="answers" id="answers"></div>
+        <div class="result" id="result"></div>
+    </div>
+</div>
+<script>
+    const questions = [
+        {
+            question: "What nutrient helps build and repair body tissues?",
+            answers: ["Protein", "Fat"],
+            correctAnswer: 0
+        },
+        {
+            question: "How many minutes of physical activity should you do each day?",
+            answers: ["30 minutes", "1 hour"],
+            correctAnswer: 0
+        },
+        {
+            question: "How can you cover your mouth when you cough or sneeze to prevent the spread of germs?",
+            answers: ["Using your hands", "Using your elbow"],
+            correctAnswer: 0
+        },
+        {
+            question: "Which snack is a healthier choice?",
+            answers: ["Apple slices", "Potato chips"],
+            correctAnswer: 0
+        },
+        {
+            question: "What should you do if you're feeling overwhelmed with schoolwork?",
+            answers: ["Ask for help from a teacher or parent", "Give up and stop trying"],
+            correctAnswer: 0
+        }
+        // Add more questions here
+    ];
+
+    let currentQuestionIndex = 0;
+    let score = 0;
+
+    const questionElement = document.getElementById('question');
+    const answersElement = document.getElementById('answers');
+    const resultElement = document.getElementById('result');
+    const loginPage = document.getElementById('loginPage');
+    const quizPage = document.getElementById('quizPage');
+    const startButton = document.getElementById('startButton');
+
+    function showQuestion() {
+        const question = questions[currentQuestionIndex];
+        questionElement.textContent = question.question;
+
+        answersElement.innerHTML = '';
+        question.answers.forEach((answer, index) => {
+            const answerCard = document.createElement('div');
+            answerCard.classList.add('answer-card');
+            answerCard.textContent = answer;
+            answerCard.addEventListener('click', () => {
+                checkAnswer(index);
+            });
+            answersElement.appendChild(answerCard);
+        });
+    }
+
+    function checkAnswer(answerIndex) {
+        const question = questions[currentQuestionIndex];
+        if (answerIndex === question.correctAnswer) {
+            score++;
+            resultElement.textContent = 'Correct!';
+        } else {
+            resultElement.textContent = 'Incorrect!';
+        }
+
+        currentQuestionIndex++;
+        if (currentQuestionIndex < questions.length) {
+            showQuestion();
+        } else {
+            showResult();
+        }
+    }
+
+    function showResult() {
+        questionElement.style.display = 'none';
+        answersElement.style.display = 'none';
+        resultElement.textContent = `You scored ${score} out of ${questions.length}.`;
+    }
+
+    function startQuiz() {
+        currentQuestionIndex = 0;
+        score = 0;
+        loginPage.style.display = 'none';
+        quizPage.style.display = 'block';
+        showQuestion();
+    }
+</script>
+</body>
+</html>

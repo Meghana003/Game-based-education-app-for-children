@@ -3,9 +3,9 @@ body {
     margin: 0;
     padding: 0;
     background-color: #a7fd78;
-  }
-  
-  .container {
+}
+
+.container {
     max-width: 600px;
     margin: 100px auto;
     padding: 20px;
@@ -13,20 +13,23 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-  }
-  
-  h1 {
+}
+
+h1 {
     color: #333;
-  }
-  
-  .options {
-    margin-top: 30px;
-  }
-  
-  .option-button {
-    display: block;
+    margin-bottom: 30px;
+}
+
+.game-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.game-link {
+    display: inline-block;
     width: 200px;
-    margin: 10px auto;
+    margin: 10px;
     padding: 15px;
     background-color: #5cdde7;
     color: #fff;
@@ -35,25 +38,8 @@ body {
     border-radius: 5px;
     font-size: 18px;
     transition: background-color 0.3s;
-  }
-  
-  .option-button:hover {
+}
+
+.game-link:hover {
     background-color: #45a049;
-  }
-
-  
-  .imgc {
-    width: 200px;
-    height: 200px;
-    text-align: center;
 }
-.imgc img {
-    align-items: center;
-    width: 200px;
-    margin-bottom: 20px;
-    padding-left: 170%;
-    padding-right: 10%;
-}
-
-
-  
