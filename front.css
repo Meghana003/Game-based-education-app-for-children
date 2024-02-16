@@ -11,10 +11,11 @@ body {
   }
   
   #name-input {
-    border: 1px solid #ccc;
+    border: 2px solid #93f38e;
     padding: 10px;
     width: 200px;
     margin-bottom: 10px;
+    background-color: white;
   }
   
   button {
@@ -92,9 +93,10 @@ h1 {
     text-align: center;
 }
 .imgc img {
+    
     width: 200px;
     margin-bottom: 20px;
-    align-items: center;
+    padding-left: 160%;
 }
 
 .button-90 {
