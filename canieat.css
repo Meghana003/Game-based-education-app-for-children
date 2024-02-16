@@ -1,0 +1,92 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    background-image: url('fruits.jpeg'); /* Replace 'your-background-image.jpg' with your image file */
+    background-size: cover;
+    background-position: center bottom; /* Move the background image to the center horizontally and bottom vertically */
+    animation: zoomBackground 10s  infinite alternate; /* Adjust duration and other properties as needed */
+}
+@keyframes zoomBackground {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1); /* Adjust the scale factor as needed */
+    }
+}
+
+#container {
+    max-width: 800px;
+    margin: 0 auto;
+    width: 800px;
+    height: 600px;
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#boy-container {
+    margin-bottom: 40px;
+}
+
+#boy {
+    width: 400px;
+    transition: transform 0.3s ease-in-out;
+}
+
+#input-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    margin-right: 10px;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 60%;
+    transition: border-color 0.3s ease-in-out;
+}
+
+input[type="text"]:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+button {
+    padding: 8px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#feedback {
+    margin-bottom: 20px;
+}
+
+#feedback-message {
+    font-style: italic;
+    color: #777;
+}
+
+#result {
+    margin-bottom: 20px;
+}
+
+#score {
+    margin-bottom: 20px;
+}
+
