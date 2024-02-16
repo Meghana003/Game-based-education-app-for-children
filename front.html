@@ -16,13 +16,16 @@
 
 
 <div class = "ques">
-Hello!
+Hello! What's your name?
 </div>
 <div class="content">
- 
-  <input type="text" id="name-input" > <br><br>
-  <button class ="button-90">Submit</button>
+  <form id="name-form" onsubmit="saveData(event)">
+    <input type="text" id="name-input" name="name" required> <br><br>
+    <button type="submit" class="button-90">Submit</button>
+  </form>
+      
 </div>
+
 
 </body>
 </html>
