@@ -13,7 +13,8 @@ body {
   #name-input {
     border: 2px solid #93f38e;
     padding: 10px;
-    width: 200px;
+    width: 220px;
+    height: 30px;
     margin-bottom: 10px;
     background-color: white;
   }
@@ -28,7 +29,7 @@ body {
   }
   
   button:hover {
-    background-color: #449d44;
+    background-color: #4cb568; 
   }
   html {
     height:100%;
@@ -60,11 +61,12 @@ body {
 }
  
 .content {
-    background-color:rgba(243, 155, 254, 0.8);
+    background-color:rgb(239, 243, 150,0.7);
     border-radius:.25em;
     box-shadow:0 0 .25em rgba(0,0,0,.25);
     box-sizing:border-box;
     left:50%;
+    border-radius: 20%;
     padding-top: 30%;
     padding:10vmin;
     position:fixed;

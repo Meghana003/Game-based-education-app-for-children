@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Child Mental Health Assessment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            background: url('health.png') no-repeat center center fixed;
+            background-size: cover;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            font-weight: bold;
+            color: #555;
+        }
+        select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        select:focus, textarea:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+        input[type="submit"] {
+            width: 100%;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1><i>Child Mental Health Assessment</i></h1>
+    <form method="POST" action="/submit">
+	
+        <label for="happiness">1.Have you ever felt sad or upset without knowing why?</label>
+        <select name="sadness" required>
+            <option value="Rarely">Rarely</option>
+            <option value="Sometimes">Sometimes</option>
+            <option value="Often">Often</option>
+            <option value="Mostly">Mostly</option>
+			<option value="Always">Always</option>
+        </select><br><br>
+
+        <label for="sadness">2. Have you felt unusually sad or down in the past week?</label>
+        <select name="sadness" required>
+            <option value="Rarely">Rarely</option>
+            <option value="Sometimes">Sometimes</option>
+            <option value="Often">Often</option>
+            <option value="Mostly">Mostly</option>
+			<option value="Always">Always</option>
+        </select><br><br>
+
+        <label for="stress">3. How often do you feel stressed or anxious?</label>
+        <select name="stress" required>
+            <option value="Rarely">Rarely</option>
+            <option value="Sometimes">Sometimes</option>
+            <option value="Often">Often</option>
+            <option value="Mostly">Mostly</option>
+			<option value="Always">Always</option>
+        </select><br><br>
+
+        <label for="worries">4. Do you have any worries or fears that bother you? If so, please describe them.</label>
+        <textarea name="worries" rows="4" cols="50"></textarea><br><br>
+
+        <label for="happy-moment">5. Can you identify a time when you felt really happy and why?</label>
+        <textarea name="happy-moment" rows="4" cols="50"></textarea><br><br>
+
+        <label for="friends">6. Do you have friends at school or in your neighborhood?</label>
+        <select name="friends" required>
+            <option value="Rarely">Rarely</option>
+            <option value="Sometimes">Sometimes</option>
+            <option value="Often">Often</option>
+            <option value="Mostly">Mostly</option>
+			<option value="Always">Always</option>
+        </select><br><br>
+
+        <label for="talk-to-friends">7. Do you feel comfortable talking to your friends and sharing your thoughts and feelings with them?</label>
+        <select name="talk-to-friends" required>
+            <option value="Rarely">Rarely</option>
+            <option value="Sometimes">Sometimes</option>
+            <option value="Often">Often</option>
+            <option value="Mostly">Mostly</option>
+			<option value="Always">Always</option>
+        </select><br><br>
+
+        <label for="bullying">8. Have you ever been bullied or teased at school or online?</label>
+        <select name="bullying" required>
+            <option value="Rarely">Rarely</option>
+            <option value="Sometimes">Sometimes</option>
+            <option value="Often">Often</option>
+            <option value="Mostly">Mostly</option>
+			<option value="Always">Always</option>
+        </select><br><br>
+
+        <label for="support">9. Do you have someone you trust and can talk to when you're feeling down or upset?</label>
+        <select name="support" required>
+            <option value="Rarely">Rarely</option>
+            <option value="Sometimes">Sometimes</option>
+            <option value="Often">Often</option>
+            <option value="Mostly">Mostly</option>
+			<option value="Always">Always</option>
+        </select><br><br>
+
+        <label for="family-relationship">10. How would you describe your relationship with your family?</label>
+        <select name="family-relationship" required>
+            <option value="Rarely">Rarely</option>
+            <option value="Sometimes">Sometimes</option>
+            <option value="Often">Often</option>
+            <option value="Most Often">Most Often</option>
+        </select><br><br>
+
+        <!-- Add more questions as needed -->
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

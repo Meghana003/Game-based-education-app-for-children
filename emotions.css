@@ -1,0 +1,41 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url("emo.jpeg"); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: "Arial", sans-serif;
+}
+
+.content {
+  text-align: center;
+  padding: 50px;
+  color: white;
+}
+.start-button {
+  background-color: #59B4C3;
+  
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  padding: 10px 30px;
+  font-size: 50px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 500px;
+  margin-right: 50px;
+  margin-left: 20px;
+}
+
+.start-button:hover {
+  background-color: #74E291; 
+}
+.start-button a {
+  text-decoration: none;
+  color:black;
+  font-family: "Noto Serif", serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+ 
+}

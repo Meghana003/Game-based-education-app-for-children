@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="emogame.css">
+<title>Emotion Regulation Game</title>
+<style>
+  body {
+    font-family: 'Bubblegum Sans', cursive;
+    background-image: url('emobg.jpeg'); 
+    background-size: cover;
+    background-position: top;
+    margin-bottom: 40px;
+    padding: 0;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0); 
+  }
+
+  .question {
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .options {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+  }
+
+  .option-button {
+    padding: 10px 40px;
+    background-color: #ffff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 40px;
+  }
+
+  .option-button:hover {
+    background-color: #0056b3;
+  }
+
+  .result {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+
+  .score {
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+
+  .message {
+    font-size: 20px;
+    margin-top: 20px;
+  }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+  <div class="question" id="question"></div>
+  <div class="options" id="options"></div>
+  <div class="result" id="result"></div>
+  <div class="score" id="score"></div>
+  <div class="message" id="message"></div>
+</div>
+<script>
+  let score = 0;
+  let questionIndex = 0;
+  const questions = [
+    {
+      question: "How do you feel when you have to try something new?",
+      options: ["😊 Excited", "😟 Nervous", "😌 sad"],
+      correctIndex: 0
+    },
+    {
+      question: "How do you feel when you help a friend?",
+      options: ["😊 Happy", "😢 Proud", "😌 Content"],
+      correctIndex: 0
+    },
+    {
+      question: "How do you feel when you have to wait for something you want?",
+      options: ["😡 Impatient", "😟 Anxious", "😌 Patient"],
+      correctIndex: 2
+    },
+    {
+      question: "How do you feel when you solve a difficult problem?",
+      options: ["😊 Accomplished", "😟 Frustrated", "😌 Relieved"],
+      correctIndex: 0
+    }
+  ];
+
+  function displayQuestion() {
+    const currentQuestion = questions[questionIndex];
+    document.getElementById('question').innerText = currentQuestion.question;
+
+    const optionsContainer = document.getElementById('options');
+    optionsContainer.innerHTML = '';
+    currentQuestion.options.forEach((option, index) => {
+      const button = document.createElement('button');
+      button.classList.add('option-button');
+      button.textContent = option;
+      button.addEventListener('click', () => selectOption(index));
+      optionsContainer.appendChild(button);
+    });
+  }
+
+  function selectOption(selectedIndex) {
+    if (selectedIndex === questions[questionIndex].correctIndex) {
+      score++;
+      document.getElementById('result').innerText = 'Correct! You chose a  response.';
+    } else {
+      document.getElementById('result').innerText = 'Incorrect! Try to choose a calm response.';
+    }
+
+    questionIndex++;
+    if (questionIndex < questions.length) {
+      setTimeout(() => {
+        document.getElementById('result').innerText = '';
+        displayQuestion();
+      }, 2000);
+    } else {
+      showScore();
+    }
+  }
+
+  function showScore() {
+    document.getElementById('score').innerText = `Your score: ${score}/${questions.length}`;
+    let message = '';
+    if (score === questions.length) {
+      message = "Congratulations! You're a master of emotions!";
+    } else if (score >= questions.length / 2) {
+      message = "Well done! You're on your way to mastering emotions!";
+    } else {
+      message = "Don't worry! Keep practicing to master your emotions!";
+    }
+    document.getElementById('message').innerText = message;
+  }
+
+  displayQuestion();
+</script>
+</body>
+</html>
