@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Chatbot</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        background-image: url("rob.jpeg");
+        background-repeat: no-repeat;
+        background-position: center;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+      }
+
+      #chat-container {
+        flex: 1;
+        overflow-y: auto;
+        padding: 20px;
+      }
+
+      .message {
+        max-width: 70%;
+        margin-bottom: 10px;
+        padding: 10px;
+        border-radius: 8px;
+      }
+
+      .user-message {
+        background-color: #4caf50;
+        color: #fff;
+        align-self: flex-end;
+      }
+
+      .bot-message {
+        background-color: #008cba;
+        color: #fff;
+        align-self: flex-start;
+      }
+
+      #input-container {
+        display: flex;
+        padding: 10px;
+        background-color: #fff;
+      }
+
+      #user-input {
+        flex: 1;
+        padding: 8px;
+        border: none;
+        border-radius: 5px;
+        margin-right: 10px;
+      }
+
+      #send-button {
+        padding: 8px 16px;
+        background-color: #008cba;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="chat-container"></div>
+    <div id="input-container">
+      <input type="text" id="user-input" placeholder="Type your message..." />
+      <button id="send-button" onclick="sendMessage()">Send</button>
+    </div>
+    <script>
+      function sendMessage() {
+        var userInput = document.getElementById("user-input").value;
+        if (userInput.trim() !== "") {
+          var chatContainer = document.getElementById("chat-container");
+          var userMessage = document.createElement("div");
+          userMessage.className = "message user-message";
+          userMessage.textContent = userInput;
+          chatContainer.appendChild(userMessage);
+
+          // Simulate bot response (you can replace this with actual bot logic)
+          if (userInput == "Hi"||"Hello" ) {
+            var botMessage = document.createElement("div");
+            botMessage.className = "message bot-message";
+            botMessage.textContent =
+              "Hi There! How can I help you?";
+            chatContainer.appendChild(botMessage);
+          }
+          if (userInput == "ways to decrease my anxiety") {
+            var botMessage = document.createElement("div");
+            botMessage.className = "message bot-message";
+            botMessage.textContent =
+              "Behavioral therapy.Deep breathing.Exercise.Journaling.Meditation.Reading.Socializing.";
+            chatContainer.appendChild(botMessage);
+          }
+          if (userInput == "ways to decrease my anger") {
+            var botMessage = document.createElement("div");
+            botMessage.className = "message bot-message";
+            botMessage.textContent =
+              "Count to 10. Counting to 10 gives you time to cool down, so you can think more clearly and overcome the impulse to lash out.Breathe slowly...Exercise can help with anger.";
+            chatContainer.appendChild(botMessage);
+          }
+          if (userInput == "ways to improve physical health") {
+            var botMessage = document.createElement("div");
+            botMessage.className = "message bot-message";
+            botMessage.textContent =
+              "Commit to a healthy diet.Limit snacking.Drink plenty of water.Move more. Take the stairs and add walking breaks to your day.Get plenty of sleep.";
+            chatContainer.appendChild(botMessage);
+          }
+          // Clear user input
+          document.getElementById("user-input").value = "";
+
+          // Scroll to the bottom of the chat container
+          chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Drag and Drop</title>
+    <link rel='stylesheet' href='drag.css'>
+
+  </head>
+  <body>
+
+    <div class="box-container">
+  <div class="box" data-numtype="protein">eggs</div>
+  <div class="box" data-numtype="vegetables">carrot</div>
+  <div class="box" data-numtype="dairy">curd</div>
+  <div class="box" data-numtype="vegetables">brinjal</div>
+  <div class="box" data-numtype="grains">lentils</div>
+  <div class="box" data-numtype="fruits">orange</div>
+  <div class="box" data-numtype="protein">chicken</div>
+  <div class="box" data-numtype="fruits">banana</div>
+  <div class="box" data-numtype="vegetables">potato</div>
+  <div class="box" data-numtype="fruits">apple</div>
+  <div class="box" data-numtype="grains">rice</div>
+  <div class="box" data-numtype="dairy">milk</div>
+
+  <div class="box" data-numtype="dairy">cheese</div>
+
+
+</div>
+
+<div class="droparea" data-area-numtype="protein">
+  <h2>Drop PROTEIN here</h2>
+</div>
+
+<div class="droparea" data-area-numtype="vegetables">
+  <h2>Drop VEGGIES here</h2>
+</div>
+<div class="droparea" data-area-numtype="fruits">
+  <h2>Drop FRUITS here</h2>
+</div>
+<div class="droparea" data-area-numtype="grains">
+  <h2>Drop GRAINS here</h2>
+</div>
+<div class="droparea" data-area-numtype="dairy">
+  <h2>Drop DAIRY here</h2>
+</div>
+
+<div class="score-container">
+  SCORE: <span id="score">0</span>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
+<script src="drag.js"></script>
+
+  </body>
+</html>

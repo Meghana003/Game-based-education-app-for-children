@@ -4,23 +4,53 @@
   <meta charset="UTF-8">
   <meta http-equiv="Page-Enter" content="revealTrans(Duration=2.0,Transition=12)">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Get Started!</title>
+  <title>Options</title>
   <link rel="stylesheet" href="options.css">
 </head>
 <body>
-  <div class="imgc">
-    <img src="frontimg.png"> 
-</div> 
   <div class="container">
     <h1>What are we gonna do today?</h1>
     <div class="options">
-      <button onclick="window.location.href='germtag.html'" class="option-button">Hygeine</button>
-      <button onclick="window.location.href='lets_learn.html'" class="option-button">Let's Learn</button>
-      <button onclick="window.location.href='quizwlogin.html'" class="option-button">Brainy Buddies</button>
-      <button onclick="window.location.href='emotion.html'" class="option-button">Feelings</button>
+      <button onclick="startGame('germtag.html')" class="option-button">Hygiene</button>
+      <button onclick="startGame('lets_learn.html')" class="option-button">Let's Learn</button>
+      <button onclick="startGame('quizwlogin.html')" class="option-button">Brainy Buddies</button>
+      <button onclick="startGame('emotion.html')" class="option-button">Feelings</button>
+      <button onclick="startGame('drag.html')" class="option-button">Nutrition</button>
     </div>
+    <div id="score">Score: 0</div> <!-- Display the score -->
   </div>
-
   
+  <script>
+  
+    function startGame(pageURL) {
+     
+        window.location.href = pageURL;
+    }
+
+    // Function to update the score display
+    function updateScoreDisplay() {
+        const scoreDisplay = document.getElementById('score');
+        scoreDisplay.textContent = 'Score: ' + localStorage.getItem('score');
+    }
+
+    // Function to reset the score to initial value when returning to options page
+    function resetScore() {
+        localStorage.setItem('score', 0); // Change to a number
+        updateScoreDisplay(); // Update the score display
+    }
+
+    // Call resetScore when the options page is loaded
+    resetScore();
+
+    // Retrieve the current score from localStorage and add it to the initial score
+    window.addEventListener('DOMContentLoaded', function() {
+        const currentScore = parseInt(localStorage.getItem('score')) || 0; // Get current score or default to 0
+        const initialScore = parseInt(localStorage.getItem('initialScore')) || 0; // Get initial score or default to 0
+        const updatedScore = currentScore + initialScore; // Calculate updated score
+        localStorage.setItem('score', updatedScore); // Update the score in localStorage
+        updateScoreDisplay(); // Update the score display
+    });
+  </script>
+  <script src="config.js"></script>
 </body>
 </html>

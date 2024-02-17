@@ -51,37 +51,75 @@
         input[type="submit"]:hover {
             background-color: #0056b3;
         }
+        #chatbotButton {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        }
     </style>
 </head>
 <body>
     <h1><i>Child Mental Health Assessment</i></h1>
-    <form method="POST" action="/submit">
-	
-        <label for="happiness">1.Have you ever felt sad or upset without knowing why?</label>
+    <form id="assessmentForm" onsubmit="calculateScore(event)">
+        <label for="sadness">1. Have you ever felt sad or upset without knowing why?</label>
         <select name="sadness" required>
-            <option value="Rarely">Rarely</option>
-            <option value="Sometimes">Sometimes</option>
-            <option value="Often">Often</option>
-            <option value="Mostly">Mostly</option>
-			<option value="Always">Always</option>
+            <option value="0">Rarely</option>
+            <option value="1">Sometimes</option>
+            <option value="2">Often</option>
+            <option value="3">Mostly</option>
+            <option value="4">Always</option>
         </select><br><br>
 
-        <label for="sadness">2. Have you felt unusually sad or down in the past week?</label>
-        <select name="sadness" required>
-            <option value="Rarely">Rarely</option>
-            <option value="Sometimes">Sometimes</option>
-            <option value="Often">Often</option>
-            <option value="Mostly">Mostly</option>
-			<option value="Always">Always</option>
+        <label for="down">2. Have you felt unusually sad or down in the past week?</label>
+        <select name="down" required>
+            <option value="0">Rarely</option>
+            <option value="1">Sometimes</option>
+            <option value="2">Often</option>
+            <option value="3">Mostly</option>
+            <option value="4">Always</option>
         </select><br><br>
 
         <label for="stress">3. How often do you feel stressed or anxious?</label>
         <select name="stress" required>
-            <option value="Rarely">Rarely</option>
-            <option value="Sometimes">Sometimes</option>
-            <option value="Often">Often</option>
-            <option value="Mostly">Mostly</option>
-			<option value="Always">Always</option>
+            <option value="0">Rarely</option>
+            <option value="1">Sometimes</option>
+            <option value="2">Often</option>
+            <option value="3">Mostly</option>
+            <option value="4">Always</option>
         </select><br><br>
 
         <label for="worries">4. Do you have any worries or fears that bother you? If so, please describe them.</label>
@@ -92,51 +130,93 @@
 
         <label for="friends">6. Do you have friends at school or in your neighborhood?</label>
         <select name="friends" required>
-            <option value="Rarely">Rarely</option>
-            <option value="Sometimes">Sometimes</option>
-            <option value="Often">Often</option>
-            <option value="Mostly">Mostly</option>
-			<option value="Always">Always</option>
+            <option value="0">Rarely</option>
+            <option value="1">Sometimes</option>
+            <option value="2">Often</option>
+            <option value="3">Mostly</option>
+            <option value="4">Always</option>
         </select><br><br>
 
         <label for="talk-to-friends">7. Do you feel comfortable talking to your friends and sharing your thoughts and feelings with them?</label>
         <select name="talk-to-friends" required>
-            <option value="Rarely">Rarely</option>
-            <option value="Sometimes">Sometimes</option>
-            <option value="Often">Often</option>
-            <option value="Mostly">Mostly</option>
-			<option value="Always">Always</option>
+            <option value="0">Rarely</option>
+            <option value="1">Sometimes</option>
+            <option value="2">Often</option>
+            <option value="3">Mostly</option>
+            <option value="4">Always</option>
         </select><br><br>
 
         <label for="bullying">8. Have you ever been bullied or teased at school or online?</label>
         <select name="bullying" required>
-            <option value="Rarely">Rarely</option>
-            <option value="Sometimes">Sometimes</option>
-            <option value="Often">Often</option>
-            <option value="Mostly">Mostly</option>
-			<option value="Always">Always</option>
+            <option value="0">Rarely</option>
+            <option value="1">Sometimes</option>
+            <option value="2">Often</option>
+            <option value="3">Mostly</option>
+            <option value="4">Always</option>
         </select><br><br>
 
         <label for="support">9. Do you have someone you trust and can talk to when you're feeling down or upset?</label>
         <select name="support" required>
-            <option value="Rarely">Rarely</option>
-            <option value="Sometimes">Sometimes</option>
-            <option value="Often">Often</option>
-            <option value="Mostly">Mostly</option>
-			<option value="Always">Always</option>
+            <option value="0">Rarely</option>
+            <option value="1">Sometimes</option>
+            <option value="2">Often</option>
+            <option value="3">Mostly</option>
+            <option value="4">Always</option>
         </select><br><br>
 
         <label for="family-relationship">10. How would you describe your relationship with your family?</label>
         <select name="family-relationship" required>
-            <option value="Rarely">Rarely</option>
-            <option value="Sometimes">Sometimes</option>
-            <option value="Often">Often</option>
-            <option value="Most Often">Most Often</option>
+            <option value="0">Rarely</option>
+            <option value="1">Sometimes</option>
+            <option value="2">Often</option>
+            <option value="3">Most Often</option>
+            <option value="4">Always</option>
         </select><br><br>
-
-        <!-- Add more questions as needed -->
 
         <input type="submit" value="Submit">
     </form>
+    <button id="chatbotButton" onclick="openChatbot()">Chat</button>
+    <div id="chatbotModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeChatbot()">&times;</span>
+            <iframe src="bot.html" frameborder="0" style="width: 100%; height: 400px;"></iframe>
+        </div>
+    </div>
+    <script>
+        function calculateScore(event) {
+            event.preventDefault();
+
+            const form = document.getElementById('assessmentForm');
+            const selects = form.querySelectorAll('select');
+            let score = 0;
+
+            selects.forEach(select => {
+                score += parseInt(select.value); // Add the value of each selected option to the score
+            });
+
+            // Display the score
+            alert('Your total score is: ' + score);
+
+            // Provide feedback based on the score
+            let feedback = '';
+            if (score >= 36) {
+                feedback = "Your mental health assessment indicates strong emotional well-being. Keep up the good work!";
+            } else if (score >= 20 && score <= 35) {
+                feedback = "Your mental health assessment suggests areas for improvement. Consider seeking support or counseling.";
+            } else {
+                feedback = "Your mental health assessment indicates potential concerns. It's important to seek professional help.";
+            }
+            
+            alert(feedback);
+            
+        }
+        function openChatbot() {
+            document.getElementById('chatbotModal').style.display = 'block';
+        }
+
+        function closeChatbot() {
+            document.getElementById('chatbotModal').style.display = 'none';
+        }
+    </script>
 </body>
 </html>

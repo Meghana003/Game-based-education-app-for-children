@@ -6,9 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Germ Tag</title>
   <link rel="stylesheet" href="germtag.css">
+  
 </head>
 <body background="health.avif">
+
+
   <div id="game-container">
+    <input type="hidden" id="player-name" name="name" value="">
     <div id="player"></div>
     <div class="germ"></div>
     <div id="goal">
@@ -28,21 +32,27 @@
   <script src="config.js"></script>
   <script>
     // Function to update the score display
-    function updateScore(newScore) {
-        document.getElementById('score').textContent = 'Score: ' + newScore;
-        // Send the score to the server-side script
-        const xhr = new XMLHttpRequest();
-        xhr.open('POST', 'update-score.php');
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        xhr.onload = function() {
-            if (xhr.status === 200) {
-                console.log('Score updated successfully');
-            } else {
-                console.error('Error updating score');
-            }
-        };
-        xhr.send('score=' + encodeURIComponent(newScore));
-    }
+    // Function to update the score display
+function updateScore(newScore) {
+    // Get the name from the input field
+    const playerName = document.getElementById('player-name').value;
+    // Update the score display
+    document.getElementById('score').textContent = 'Score: ' + newScore;
+
+    // Send the score and name to the server-side script
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', 'update-score.php');
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            console.log('Score updated successfully');
+        } else {
+            console.error('Error updating score');
+        }
+    };
+    xhr.send('name=' + encodeURIComponent(playerName) + '&score=' + encodeURIComponent(newScore));
+}
+
 
     // Get the variable from localStorage in the second HTML page
     var score = localStorage.getItem('score');

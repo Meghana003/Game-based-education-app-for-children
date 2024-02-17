@@ -1,0 +1,45 @@
+body {
+    font-family: "Arial", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #aeeeff; /* Light blue background */
+    background-image: url("puz1.jpg"); /* Kid-friendly background image */
+    background-size: cover;
+  }
+  
+  .game-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  #puzzle-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .puzzle-piece {
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    cursor: grab;
+  }
+  
+  #instructions {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }

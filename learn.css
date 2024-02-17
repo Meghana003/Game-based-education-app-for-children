@@ -10,7 +10,7 @@ background: linear-gradient(90deg, rgba(224,237,53,1) 0%, rgba(46,217,46,1) 35%,
 
 .container {
     max-width: 950px;
-    margin: 50px auto;
+    margin: 20px auto;
     padding: 20px;
     background-color: #FFCF96;
     border-radius: 10px;
@@ -47,6 +47,7 @@ button:hover {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+
 }
 
 .video-thumb {
@@ -68,11 +69,27 @@ button:hover {
 
 .video-container {
     margin: 20px;
+
     text-align: center;
   }
   
   video {
     display: block;
+  }
+  .button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .button:hover {
+    background-color: #45a049;
   }
   
  

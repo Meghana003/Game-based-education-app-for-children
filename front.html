@@ -20,12 +20,25 @@
 Hello! What's your name?
 </div>
 <div class="content">
-  <form id="name-form" action="options.html">
+  <form name='submit-to-google-sheet' id="name-form" action="options.html">
     <input type="text" id="name-input" name="name" required> <br><br>
     <button type="submit" class="button-90">Submit</button>
   </form>
-      
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzita9x8FFLjA-4I2-mLXxLiPMVtpq-rQGsYB4jZbVtdEbUK8adaOoiK4ICu4Giqtzouw/exec'
+    const form = document.forms['submit-to-google-sheet']
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => console.log('Success!', response))
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
 </div>
+<div id="welcome-message" style="display: none;"></div>
+    </div>
+    <script src="front.js"></script>
 
 
 </body>

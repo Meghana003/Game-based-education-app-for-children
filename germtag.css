@@ -1,57 +1,61 @@
 body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url('health.avif'); /* Set background image for the body */
-    background-size: cover;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('health.avif'); /* Set background image for the body */
+  background-size: cover;
 }
 
 #game-container {
-    position: relative;
-    width: 800px;
-    height: 600px;
-    border: 2px solid black;
-    background-color: rgba(255, 255, 255, 0.5); /* Set a semi-transparent background color for the game container */
+  position: relative;
+  width: 800px;
+  height: 600px;
+  border: 2px solid black;
+  background-color: rgba(255, 255, 255, 0.5); /* Set a semi-transparent background color for the game container */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 20px; /* Add some padding at the bottom */
 }
 
 /* Add your other CSS styles for player, germ, goal, and message-overlay here */
 
-  
-  #player {
-    position: absolute;
-    width:80px;
-    height: 80px;
-    
-    background-image:url('boy.jpeg');
-    background-size: cover;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  
-  .germ {
-    position: absolute;
-    width: 50px; /* Adjust size as needed */
-    height: 50px; /* Adjust size as needed */
-    background-image: url('germ.jpeg'); /* Replace 'germ.png' with your image file */
-    background-size: cover;
-  }
-  
-  #goal {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    background-color: green;
-    bottom: 20px;
-    right: 20px;
-  }
-  .goal-text {
-    color: white;
-    font-size: 18px;
-  }
+#player {
+  position: absolute;
+  width:80px;
+  height: 80px;
+  background-image:url('boy.jpeg');
+  background-size: cover;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.germ {
+  position: absolute;
+  width: 50px; /* Adjust size as needed */
+  height: 50px; /* Adjust size as needed */
+  background-image: url('germ.jpeg'); /* Replace 'germ.png' with your image file */
+  background-size: cover;
+}
+
+#goal {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-color: green;
+  bottom: 20px;
+  right: 20px;
+}
+
+.goal-text {
+  color: white;
+  font-size: 18px;
+}
+
 #message-overlay {
   position: fixed;
   top: 0;
@@ -81,4 +85,13 @@ body {
 
 #ok-button {
   margin-top: 20px;
+}
+
+#score {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 24px;
+  color: #ff0000; /* Change color as needed */
 }

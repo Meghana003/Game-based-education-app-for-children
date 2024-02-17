@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Feedback</title>
+    <style>
+        /* Your CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        .feedback-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        p {
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="feedback-container">
+        <h2>Feedback</h2>
+        <p id="feedbackText"></p>
+    </div>
+
+    <script>
+        // Retrieve feedback from the URL query parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const feedback = urlParams.get('feedback');
+
+        // Display the feedback in the container
+        const feedbackTextElement = document.getElementById('feedbackText');
+        feedbackTextElement.textContent = feedback;
+    </script>
+</body>
+</html>

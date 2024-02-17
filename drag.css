@@ -1,0 +1,88 @@
+* {
+  box-sizing: border-box;
+
+}
+
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #ECF4D6;
+}
+
+
+
+.box-container {
+
+  background: #9AD0C2;
+
+  padding: 0 500px 30px 150px;
+  display: inline-block;
+  vertical-align: top;
+  margin:10px;
+}
+
+.box {
+
+
+
+  display:inline-block;
+  width: 60px;
+  height: 60px;
+  background: #2C3639;
+  color: #fff;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.05em;
+  text-align: center;
+  transition: transform 0.15s ease;
+  border-radius: 50%;
+  margin: 7px 7px;
+  padding: 20px 5px;
+}
+
+.box.correct {
+  background: green;
+
+}
+
+.box.incorrect {
+  background: red;
+}
+
+.box.ui-draggable-dragging {
+  box-shadow: 10px 20px 30px rgba(0, 0, 0, 0.5);
+  transform: scale(2);
+}
+
+.droparea {
+
+  width: 260px;
+  height: 150px;
+
+  display:inline-block;
+  margin:30px;
+  text-align: center;
+  line-height:150px;
+
+  background-image: url("cloud-removebg-preview.png");
+ background-size: 260px;
+ background-position: center;
+
+
+}
+
+
+
+.score-container {
+  position:absolute;
+  top:10px;
+  left:1000px;
+  background-image: url("score.jpg");
+  vertical-align: top;
+  border: 3px;
+  font-size: 2em;
+  font-weight: 800px;
+  color:yellow;
+  padding: 50px;
+}
