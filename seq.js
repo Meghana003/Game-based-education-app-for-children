@@ -2,7 +2,7 @@ const puzzleContainer = document.getElementById("puzzle-container");
 const checkButton = document.getElementById("checkButton");
 
 const puzzles = [
-  ["p2.jpg", "p1.jpg", "p3.jpg"],
+  ["p2.jpeg", "p1.jpeg", "p3.jpeg"],
   ["p4.jpg", "p5.jpg", "p6.jpg"],
 ];
 
