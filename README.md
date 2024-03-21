@@ -2,4 +2,4 @@ This project is a web based game app built using HTML,CSS and JavaScript. You ca
 
 To run this code:
 1. Clone the repository to your system
-2. Run index.html and you're good to go!
+2. Run front.html and you're good to go!
